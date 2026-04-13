@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_inventory_stock_inventories",
+  "info": {
+    "displayName": "Stock Inventory",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "BatchNumber": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "required": true
+    },
+    "QuantityOnHand": {
+      "type": "integer",
+      "required": true
+    },
+    "ExpiryDate": {
+      "type": "date"
+    },
+    "StorageLocation": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "required": true
+    },
+    "LastRestockDate": {
+      "type": "datetime"
+    }
+  },
+  "config": {}
+}

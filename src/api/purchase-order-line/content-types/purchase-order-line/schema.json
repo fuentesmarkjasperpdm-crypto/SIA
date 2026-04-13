@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchase_order_lines",
+  "info": {
+    "singularName": "purchase-order-line",
+    "pluralName": "purchase-order-lines",
+    "displayName": "Purchase Order Line"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "QuantityOrdered": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "UnitPriceAtOrdered": {
+      "type": "decimal",
+      "required": true
+    },
+    "LineTotal": {
+      "type": "decimal",
+      "required": true
+    },
+    "ReceivedStatus": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Pending",
+        "Received",
+        "Cancelled"
+      ]
+    },
+    "medicine": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::medicine.medicine",
+      "inversedBy": "purchase_order_lines"
+    },
+    "purchase_orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::purchase-order.purchase-order",
+      "mappedBy": "purchase_order_lines"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "suppliers",
+  "info": {
+    "singularName": "supplier",
+    "pluralName": "suppliers",
+    "displayName": "Supplier"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SupplierName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "required": true
+    },
+    "ContactPerson": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "required": true
+    },
+    "PhoneNumber": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "required": true,
+      "regex": "^[+]?[(]?[0-9]{1,4}[)]?[-\\\\s.]?[(]?[0-9]{1,4}[)]?[-\\\\s.]?[0-9]{1,9}$"
+    },
+    "EmailAddress": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "LicenseNumber": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "required": true,
+      "unique": true
+    },
+    "purchase_orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::purchase-order.purchase-order",
+      "mappedBy": "supplier"
+    }
+  }
+}
